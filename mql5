@@ -1,0 +1,137 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                                Gold Collector Pro |
+//|                                       https://www.forexroboteasy.com |
+//|                                                  Forex Robot Easy Team |
+//+------------------------------------------------------------------+
+
+// Global variables
+string secretKey = 'SECRET_KEY';
+bool isFakeVersionDetected = false;
+
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    // Check for fake versions
+    if (IsFakeVersion())
+    {
+        Print('WARNING: Fake version of Gold Collector Pro detected!');
+        isFakeVersionDetected = true;
+        return INIT_FAILED;
+    }
+    
+    // Other initialization tasks
+    // ...
+    
+    return INIT_SUCCEEDED;
+}
+
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    // Perform deinitialization tasks
+    // ...
+}
+
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+    // Check if fake version is detected, do not proceed further
+    if (isFakeVersionDetected)
+        return;
+    
+    // Identify and analyze the trend
+    int trend = IdentifyTrend();
+    
+    // Open trades based on the trend direction
+    if (trend == TREND_UP)
+    {
+        OpenBuyTrade();
+    }
+    else if (trend == TREND_DOWN)
+    {
+        OpenSellTrade();
+    }
+    
+    // Manage grid strategy and adjust positions
+    ManageGridStrategy();
+    
+    // Monitor and manage drawdown
+    ManageDrawdown();
+    
+    // Calculate and display important statistics
+    CalculateAndDisplayStatistics();
+}
+
+//+------------------------------------------------------------------+
+//| Function to identify and analyze the trend                       |
+//+------------------------------------------------------------------+
+int IdentifyTrend()
+{
+    // Trend identification logic
+    // ...
+    
+    return TREND_UP; // Example: Assume the trend is up
+}
+
+//+------------------------------------------------------------------+
+//| Function to open buy trades                                      |
+//+------------------------------------------------------------------+
+void OpenBuyTrade()
+{
+    // Open buy trade logic
+    // ...
+}
+
+//+------------------------------------------------------------------+
+//| Function to open sell trades                                     |
+//+------------------------------------------------------------------+
+void OpenSellTrade()
+{
+    // Open sell trade logic
+    // ...
+}
+
+//+------------------------------------------------------------------+
+//| Function to manage the grid strategy                             |
+//+------------------------------------------------------------------+
+void ManageGridStrategy()
+{
+    // Grid strategy management logic
+    // ...
+}
+
+//+------------------------------------------------------------------+
+//| Function to manage drawdown                                      |
+//+------------------------------------------------------------------+
+void ManageDrawdown()
+{
+    // Drawdown management logic
+    // ...
+}
+
+//+------------------------------------------------------------------+
+//| Function to calculate and display statistics                     |
+//+------------------------------------------------------------------+
+void CalculateAndDisplayStatistics()
+{
+    // Calculation and display logic for statistics
+    // ...
+}
+
+//+------------------------------------------------------------------+
+//| Function to check for fake versions of Gold Collector Pro        |
+//+------------------------------------------------------------------+
+bool IsFakeVersion()
+{
+    // Fake version detection logic
+    // ...
+    
+    return false; // Assume no fake version is detected
+}
